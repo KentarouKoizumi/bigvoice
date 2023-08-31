@@ -5,7 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: process.env.GITHUB_PAGES
-  ? "/uniplanner/"
+  ? "/bigvoice/"
   : "./",
   plugins: [react(), tsconfigPaths()],
 })
