@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import useSound from 'use-sound';
 import Sound from './assets/警告音2.mp3';
 
@@ -10,10 +10,10 @@ function AudioMonitor() {
   const [play] = useSound(Sound,{ interrupt: true, volume: alertVolume });
 
   useEffect(() => {
-    let audioContext, microphone, scriptProcessor;
+    let audioContext: AudioContext, microphone:MediaStreamAudioSourceNode, scriptProcessor: ScriptProcessorNode;
 
     if (isListening) {
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      audioContext = new window.AudioContext();
       scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
       scriptProcessor.connect(audioContext.destination);
 
